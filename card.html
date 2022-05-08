@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Maldiciones</title>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="icon" href="images/Flaticon.png" sizes="32x32">
+        <link rel="icon" href="images/Flaticon.png" sizes="192x192">
+        <link rel="apple-touch-icon" href="images/Flaticon.png">
+        <style>
+            body {
+                background: #151515;
+            }
+
+            section {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 5vh;
+                align-items: center;
+            }
+            
+            /* entire container, keeps perspective */
+            .flip-container {
+                perspective: 1000px;
+                padding-left: 1vw;
+                padding-right: 1vw;
+            }
+                /* flip the pane when hovered */
+                .flip-container:hover .flipper, .flip-container:focus .flipper {
+                    transform: rotateY(180deg);
+                    -webkit-transform: rotateY(180deg);
+                }
+
+            .flip-container, .front, .back {
+                width: 320px;
+                height: 480px;
+            }
+
+            /* flip speed goes here */
+            .flipper {
+                transition: 1s;
+                -webkit-transition: 1s;
+                transform-style: preserve-3d;
+                -webkit-transform-style: preserve-3d;
+                position: relative;
+            }
+
+            /* hide back of pane during swap */
+            .front, .back {
+                backface-visibility: hidden;
+
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            /* front pane, placed above back */
+            .front {
+                z-index: 2;
+                /* for firefox 31 */
+                transform: rotateY(0deg);
+                -webkit-transform: rotateY(0deg);
+            }
+
+            /* back, initially hidden pane */
+            .back {
+                transform: rotateY(180deg);
+                -webkit-transform: rotateY(180deg);
+            }
+
+            @media only screen and (hover: none) and (hover: hover) {
+                
+                /* entire container, keeps perspective */
+                .flip-container {
+                    perspective: 1000px;
+                    padding-left: 1vw;
+                    padding-right: 1vw;
+                }
+                    /* flip the pane when hovered */
+                    .flip-container:hover .flipper .flip-container:focus .flipper{
+                        transform: rotateY(180deg);
+                        -webkit-transform: rotateY(180deg);
+                    }
+
+                .flip-container, .front, .back {
+                    width: 320px;
+                    height: 480px;
+                }
+
+                /* flip speed goes here */
+                .flipper {
+                    transition: 1s;
+                    -webkit-transition: 1s;
+                    transform-style: preserve-3d;
+                    -webkit-transform-style: preserve-3d;
+                    position: relative;
+                }
+
+                /* hide back of pane during swap */
+                .front, .back {
+                    backface-visibility: hidden;
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+
+                /* front pane, placed above back */
+                .front {
+                    z-index: 2;
+                    /* for firefox 31 */
+                    transform: rotateY(0deg);
+                    -webkit-transform: rotateY(0deg);
+                }
+
+                /* back, initially hidden pane */
+                .back {
+                    transform: rotateY(180deg);
+                    -webkit-transform: rotateY(180deg);
+                }
+            }
+
+            @media only screen and (min-width: 1100px) {
+                section {
+                    height: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(3, auto);
+                    grid-column-gap: 3vw;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .flip-container {
+                    padding: 0;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <section>
+            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper">
+                    <div class="front">
+                        <img src="images/Parte Trasera v6.2.png" alt="Carta trasera Maldiciones">
+                    </div>
+                    <div class="back">
+                        <img src="images/Antitodo v6.0.1.png" alt="Carta Maldición">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper">
+                    <div class="front">
+                        <img src="images/Parte Trasera v6.2.png" alt="Carta trasera Maldiciones">
+                    </div>
+                    <div class="back">
+                        <img src="images/Maldición v6.0.1.png" alt="Carta Maldición">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper">
+                    <div class="front">
+                        <img src="images/Parte Trasera v6.2.png" alt="Carta trasera Maldiciones">
+                    </div>
+                    <div class="back">
+                        <img src="images/Trastada v6.0.1.png" alt="Carta Maldición">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
